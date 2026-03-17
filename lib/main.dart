@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 
 void main() {
   runApp(const AmbulanceApp());
@@ -25,10 +28,46 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-
+  Set<Polyline> polylines = {};
   GoogleMapController? mapController;
   LatLng currentPosition = const LatLng(0, 0);
+  LatLng destination = LatLng(17.4065, 78.4772); // example hospital
+  Future<void> getRoute() async {
+    final String apiKey = "AIzaSyAqk877t9drD30YkzR0lDkTHOWK-J3E_Bc";
 
+    final url =
+        "https://maps.googleapis.com/maps/api/directions/json?"
+        "origin=${currentPosition.latitude},${currentPosition.longitude}"
+        "&destination=${destination.latitude},${destination.longitude}"
+        "&key=$apiKey";
+
+    final response = await http.get(Uri.parse(url));
+
+    final data = jsonDecode(response.body);
+
+    if (data["routes"].isEmpty) return;
+    final points = data["routes"][0]["overview_polyline"]["points"];
+
+    PolylinePoints polylinePoints = PolylinePoints();
+
+    List<PointLatLng> decodedPoints = polylinePoints.decodePolyline(points);
+
+    List<LatLng> routePoints = decodedPoints
+        .map((point) => LatLng(point.latitude, point.longitude))
+        .toList();
+
+    setState(() {
+      polylines.clear();
+      polylines.add(
+        Polyline(
+          polylineId: const PolylineId("route"),
+          points: routePoints,
+          width: 5,
+          color: Colors.blue,
+        ),
+      );
+    });
+  }
   Future<void> getLocation() async {
 
     LocationPermission permission = await Geolocator.requestPermission();
@@ -42,6 +81,7 @@ class _MapScreenState extends State<MapScreen> {
     mapController?.animateCamera(
       CameraUpdate.newLatLngZoom(currentPosition, 16),
     );
+    await getRoute();
   }
 
   void _onMapCreated(GoogleMapController controller) {
@@ -63,8 +103,13 @@ class _MapScreenState extends State<MapScreen> {
           Marker(
             markerId: const MarkerId("ambulance"),
             position: currentPosition,
-          )
+          ),
+          Marker(
+            markerId: const MarkerId("hospital"),
+            position: destination,
+          ),
         },
+        polylines: polylines,
       ),
     );
   }
