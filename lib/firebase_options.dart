@@ -33,10 +33,7 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -49,14 +46,6 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDAru-g6XKwAbxzwCB0YLnMRSuopjg-SqA',
-    appId: '1:371214170408:android:b7134ecd7a27e6ee31f81d',
-    messagingSenderId: '371214170408',
-    projectId: 'ambulance-priority-syste-a4c91',
-    storageBucket: 'ambulance-priority-syste-a4c91.firebasestorage.app',
-  );
-
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBklojW4oLG4TTA_OW2Ps6sT5VBcw8_vp4',
     appId: '1:371214170408:web:b5ca07c22ea8f49231f81d',
@@ -66,4 +55,20 @@ class DefaultFirebaseOptions {
     storageBucket: 'ambulance-priority-syste-a4c91.firebasestorage.app',
   );
 
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyDAru-g6XKwAbxzwCB0YLnMRSuopjg-SqA',
+    appId: '1:371214170408:android:b7134ecd7a27e6ee31f81d',
+    messagingSenderId: '371214170408',
+    projectId: 'ambulance-priority-syste-a4c91',
+    storageBucket: 'ambulance-priority-syste-a4c91.firebasestorage.app',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyBklojW4oLG4TTA_OW2Ps6sT5VBcw8_vp4',
+    appId: '1:371214170408:web:bbc1e69b081593da31f81d',
+    messagingSenderId: '371214170408',
+    projectId: 'ambulance-priority-syste-a4c91',
+    authDomain: 'ambulance-priority-syste-a4c91.firebaseapp.com',
+    storageBucket: 'ambulance-priority-syste-a4c91.firebasestorage.app',
+  );
 }
