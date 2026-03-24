@@ -4,8 +4,10 @@ import 'package:geolocator/geolocator.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const AmbulanceApp());
 }
 
@@ -33,7 +35,7 @@ class _MapScreenState extends State<MapScreen> {
   LatLng currentPosition = const LatLng(0, 0);
   LatLng destination = LatLng(17.4065, 78.4772); // example hospital
   Future<void> getRoute() async {
-    final String apiKey = "AIzaSyAqk877t9drD30YkzR0lDkTHOWK-J3E_Bc";
+    final String apiKey = dotenv.env['GOOGLE_MAPS_API_KEY']!;
 
     final url =
         "https://maps.googleapis.com/maps/api/directions/json?"
