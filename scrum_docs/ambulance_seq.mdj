@@ -1,0 +1,84 @@
+{
+  "_type": "Project",
+  "name": "Ambulance System",
+  "ownedElements": [
+    {
+      "_type": "UMLModel",
+      "name": "Model",
+      "ownedElements": [
+        {
+          "_type": "UMLSequenceDiagram",
+          "name": "Ambulance Sequence",
+          "ownedElements": [
+            { "_type": "UMLLifeline", "name": "Traffic Police" },
+            { "_type": "UMLLifeline", "name": "Google Maps" },
+            { "_type": "UMLLifeline", "name": "Ambulance Driver" },
+            { "_type": "UMLLifeline", "name": "System" },
+            { "_type": "UMLLifeline", "name": "Control Room" },
+
+            {
+              "_type": "UMLMessage",
+              "name": "1. Send Ambulance Request",
+              "source": { "$ref": "Traffic Police" },
+              "target": { "$ref": "System" }
+            },
+            {
+              "_type": "UMLMessage",
+              "name": "2. Give nearest Ambulance info",
+              "source": { "$ref": "System" },
+              "target": { "$ref": "Traffic Police" }
+            },
+            {
+              "_type": "UMLMessage",
+              "name": "3. Notify nearest driver to start",
+              "source": { "$ref": "System" },
+              "target": { "$ref": "Ambulance Driver" }
+            },
+            {
+              "_type": "UMLMessage",
+              "name": "4. Start Trip",
+              "source": { "$ref": "Ambulance Driver" },
+              "target": { "$ref": "System" }
+            },
+            {
+              "_type": "UMLMessage",
+              "name": "5. Requests Route and ETA",
+              "source": { "$ref": "Ambulance Driver" },
+              "target": { "$ref": "Google Maps" }
+            },
+            {
+              "_type": "UMLMessage",
+              "name": "6. Return Route",
+              "source": { "$ref": "Google Maps" },
+              "target": { "$ref": "Ambulance Driver" }
+            },
+            {
+              "_type": "UMLMessage",
+              "name": "7. Send Live Location",
+              "source": { "$ref": "Ambulance Driver" },
+              "target": { "$ref": "System" }
+            },
+            {
+              "_type": "UMLMessage",
+              "name": "8. Track Live Location",
+              "source": { "$ref": "System" },
+              "target": { "$ref": "Control Room" }
+            },
+            {
+              "_type": "UMLMessage",
+              "name": "9. Send Alert (Location, ETA)",
+              "source": { "$ref": "System" },
+              "target": { "$ref": "Traffic Police" }
+            },
+            {
+              "_type": "UMLMessage",
+              "name": "10. Acknowledge Alert and clears the traffic",
+              "source": { "$ref": "Traffic Police" },
+              "target": { "$ref": "System" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

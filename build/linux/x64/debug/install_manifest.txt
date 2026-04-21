@@ -1,0 +1,13 @@
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/ambulance_app
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/icudtl.dat
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/flutter_assets/version.json
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES.Z
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/flutter_assets/NativeAssetsManifest.json
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/flutter_assets/shaders/stretch_effect.frag
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin
+/home/setty-devesh/Desktop/ambulance-signal-priority-system/build/linux/x64/debug/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
